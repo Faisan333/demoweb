@@ -316,14 +316,14 @@ a:focus {
   content:url("../images/fasi.png");
 }
 .mahr{
-  content:url("../images/fasi.png");
+  content:url("../images/lipfasi.png");
 }
-.fusi{
-  content:url("../images/fasi.png");
-}
+/* .fusi{
+  content:url("../images/lipfasi.png");
+} */
 
 .crozz{
-  content:url("../images/fasi.png");
+  content:url("../images/facefasi.png");
 }
 
 .logo{
@@ -519,15 +519,15 @@ a:focus {
     margin-top: -55px;
   }
   .fusi{
-    content:url("../images/fasi.png");
+    content:url("../images/lipfasi.png");
     margin-top: -55px;
   }
-  .mahr{
+  /* .mahr{
     content:url("../images/fasi.png");
     margin-top: -55px;
-  }
+  } */
   .crozz{
-    content:url("../images/fasi.png");
+    content:url("../images/facefasi.png");
     margin-top: -55px;
   }
   .about_container {
