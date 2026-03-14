@@ -11,7 +11,8 @@
 	<meta name="keywords" content="bootstrap, bootstrap4" />
 
 	<!-- Bootstrap CSS -->
-	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+	<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -48,11 +49,11 @@
 		<!-- ===== NAVBAR ===== -->
 		<nav class="navbar" id="navbar">
 			<a href="index.html">Home</a>
-			<a href="#shop.html">Shop</a>
-			<a href="#trending">Best Sellers</a>
-			<a href="facepack.html">Face Pack</a>
-			<a href="faceoil.html">Face Oil</a>
-			<a href="lipbalm.html">Lip Balm</a>
+			<!-- <a href="#shop.html">Shop</a> -->
+			<a href="#bestseller">Best Sellers</a>
+			<a href="#bestseller">Face Pack</a>
+			<a href="#bestseller">Face Oil</a>
+			<a href="#bestseller">Lip Balm</a>
 			<a href="contact.html">Contact Us</a>
 		</nav>
 	</section>
@@ -127,12 +128,12 @@
 
 	</section>
 
-	<section class="fs-products-section">
+	<section class="fs-products-section " id="bestseller">
 		<div class="container">
 			<h2 class="fs-title">Our Best Sellers</h2>
 			<p class="fs-subtitle">Top picks loved by our community</p>
 
-			<div class="row justify-content-center g-4">
+			<div class="row justify-content-center g-4 fs-mobile-scroll">
 
 				<!-- PRODUCT 1 -->
 				<div class="col-lg-3 col-md-6 col-12">
@@ -149,7 +150,7 @@
 						<div class="fs-product-name">Salicylic Acid Cleanser</div>
 						<div class="fs-product-desc">Acne, Breakouts & Oiliness</div>
 						<div class="fs-product-price">On Sale from ₹269</div>
-						<button class="fs-select-btn">Select Size</button>
+						<button class="fs-select-btn" href="faceoil.html">View Product</button>
 					</div>
 				</div>
 
@@ -168,7 +169,7 @@
 						<div class="fs-product-name">SPF 50 Sunscreen</div>
 						<div class="fs-product-desc">UV Protection</div>
 						<div class="fs-product-price">On Sale from ₹359</div>
-						<button class="fs-select-btn">Select Size</button>
+						<button class="fs-select-btn" href="facepack.html">View Product</button>
 					</div>
 				</div>
 
@@ -187,7 +188,7 @@
 						<div class="fs-product-name">Vitamin C Serum</div>
 						<div class="fs-product-desc">Brightening & Spots</div>
 						<div class="fs-product-price">On Sale from ₹299</div>
-						<button class="fs-select-btn">Select Size</button>
+						<button class="fs-select-btn" href="lipbalm.html">View Product</button>
 					</div>
 				</div>
 
@@ -228,25 +229,25 @@
 		<div class="care-grid">
 
 			<div class="care-box">
-				<i class='bx bx-badge-check'></i>
+				<i class='fa fa-check-circle'></i>
 				<h4>Transparency</h4>
 				<p>Full disclosure of ingredients used & their concentration</p>
 			</div>
 
 			<div class="care-box">
-				<i class='bx bx-flask'></i>
+				<i class='fa fa-flask'></i>
 				<h4>Efficacy</h4>
 				<p>Formulations developed in our in-house laboratories</p>
 			</div>
 
 			<div class="care-box">
-				<i class='bx bx-droplet'></i>
+				<i class='fa fa-tint'></i>
 				<h4>Affordable</h4>
 				<p>Skincare accessible to all</p>
 			</div>
 
 			<div class="care-box">
-				<i class='bx bx-world'></i>
+				<i class='fa fa-globe'></i>
 				<h4>Only the best</h4>
 				<p>Ingredients sourced from across the world</p>
 			</div>
@@ -256,49 +257,49 @@
 	</section>
 
 	<section class="customer-review-section">
-    <div class="review-container">
-        <h2 class="review-heading">What Our Customers Say</h2>
-        <div class="review-slider">
-            <button class="review-arrow review-left" onclick="prevReview()">❮</button>
+		<div class="review-container">
+			<h2 class="review-heading">What Our Customers Say</h2>
+			<div class="review-slider">
+				<button class="review-arrow review-left" onclick="prevReview()">❮</button>
 
-            <div class="review-track" id="reviewTrack">
-                <div class="review-card">
-                    <div class="review-user"><b>Adila M.</b><span>12/17/25</span></div>
-                    <div class="review-stars">★★★★★</div>
-                    <h4>Very impressive</h4>
-                    <p>It helps my skin improve moisture condition. Really works well for my skin.</p>
-                    <div class="review-product"><img src="images/product1.png">Squalane Face Oil</div>
-                </div>
+				<div class="review-track" id="reviewTrack">
+					<div class="review-card">
+						<div class="review-user"><b>Adila M.</b><span>12/17/25</span></div>
+						<div class="review-stars">★★★★★</div>
+						<h4>Very impressive</h4>
+						<p>It helps my skin improve moisture condition. Really works well for my skin.</p>
+						<div class="review-product"><img src="images/product1.png">Squalane Face Oil</div>
+					</div>
 
-                <div class="review-card">
-                    <div class="review-user"><b>Salma S.</b><span>12/19/25</span></div>
-                    <div class="review-stars">★★★★★</div>
-                    <h4>Very happy to use</h4>
-                    <p>Very happy to use this cream. Keeps skin soft and glowing.</p>
-                    <div class="review-product"><img src="images/product2.png">Repair Moisturizer</div>
-                </div>
+					<div class="review-card">
+						<div class="review-user"><b>Salma S.</b><span>12/19/25</span></div>
+						<div class="review-stars">★★★★★</div>
+						<h4>Very happy to use</h4>
+						<p>Very happy to use this cream. Keeps skin soft and glowing.</p>
+						<div class="review-product"><img src="images/product2.png">Repair Moisturizer</div>
+					</div>
 
-                <div class="review-card">
-                    <div class="review-user"><b>Nupur A.</b><span>12/18/25</span></div>
-                    <div class="review-stars">★★★★★</div>
-                    <h4>Nice</h4>
-                    <p>Very gentle and seems to work well for my skin.</p>
-                    <div class="review-product"><img src="images/product3.png">Glycolic Cleanser</div>
-                </div>
+					<div class="review-card">
+						<div class="review-user"><b>Nupur A.</b><span>12/18/25</span></div>
+						<div class="review-stars">★★★★★</div>
+						<h4>Nice</h4>
+						<p>Very gentle and seems to work well for my skin.</p>
+						<div class="review-product"><img src="images/product3.png">Glycolic Cleanser</div>
+					</div>
 
-                <div class="review-card">
-                    <div class="review-user"><b>Nishagant S.</b><span>12/18/25</span></div>
-                    <div class="review-stars">★★★★★</div>
-                    <h4>Gentle Face Wash</h4>
-                    <p>It cleanses the face without stripping moisture.</p>
-                    <div class="review-product"><img src="images/product4.png">Hydrating Cleanser</div>
-                </div>
-            </div>
+					<div class="review-card">
+						<div class="review-user"><b>Nishagant S.</b><span>12/18/25</span></div>
+						<div class="review-stars">★★★★★</div>
+						<h4>Gentle Face Wash</h4>
+						<p>It cleanses the face without stripping moisture.</p>
+						<div class="review-product"><img src="images/product4.png">Hydrating Cleanser</div>
+					</div>
+				</div>
 
-            <button class="review-arrow review-right" onclick="nextReview()">❯</button>
-        </div>
-    </div>
-</section>
+				<button class="review-arrow review-right" onclick="nextReview()">❯</button>
+			</div>
+		</div>
+	</section>
 
 
 	<!--==========================
@@ -311,7 +312,7 @@
 
 					<div class="col-lg-3 col-md-6 footer-info">
 						<a href="#intro"><img src="images/logo.png" alt="" title=""
-								style="height:100px;width: auto;" /></a>
+								style="height:180px;width: auto;" /></a>
 						<!-- <p class="pt-2">With experience in garment trading for more than a decade, Fasica Garments are
 							comfortable
 							clothing that becomes your second skin.</p> -->

@@ -72,6 +72,8 @@
 
 })()
 
+
+
 document.querySelectorAll(".fs-product-card").forEach(card=>{
   let track = card.querySelector(".fs-slide-track");
   let images = track.querySelectorAll("img");

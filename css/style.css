@@ -712,14 +712,14 @@ textarea {
 --------------------------------------------------------------*/
 
 #footer {
-  background: #003626;
+  background: #000;
   padding: 0 0 30px 0;
   color: #eee;
   font-size: 14px;
 }
 
 #footer .footer-top {
-  background: #003626;
+  background: #000;
   padding: 60px 0 30px 0;
 }
 
