@@ -132,3 +132,24 @@ setInterval(() => {
 // Arrow controls
 function nextReview() { index++; moveSlider(); }
 function prevReview() { index--; if(index<0) index=cards.length-1; moveSlider(); }
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const items = document.querySelectorAll(".sk-animate-item");
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    }, {
+        threshold: 0.15
+    });
+
+    items.forEach(item => {
+        observer.observe(item);
+    });
+
+});

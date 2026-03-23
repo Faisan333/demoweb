@@ -12,7 +12,10 @@
 
 	<!-- Bootstrap CSS -->
 	<!-- Font Awesome CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Roboto:wght@300;400;500;700&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -51,6 +54,7 @@
 			<a href="index.html">Home</a>
 			<!-- <a href="#shop.html">Shop</a> -->
 			<a href="#bestseller">Best Sellers</a>
+			<a href="#combo">Combo Pack</a>
 			<a href="#bestseller">Face Pack</a>
 			<a href="#bestseller">Face Oil</a>
 			<a href="#bestseller">Lip Balm</a>
@@ -106,20 +110,20 @@
 		<div class="category-container">
 
 			<div class="category-card">
-				<img src="images/BAN1.png">
+				<img src="images/f3.png">
 				<div class="overlay">Face Oil</div>
 				<!-- <p>Skin</p> -->
 			</div>
 
 			<div class="category-card">
-				<img src="images/BAN2.png">
+				<img src="images/f1.png">
 				<div class="overlay">Face Pack</div>
 				<!-- <p></p> -->
 			</div>
 
 
 			<div class="category-card">
-				<img src="images/BAN3.png">
+				<img src="images/LIPPR.png">
 				<div class="overlay">Lip Care</div>
 				<!-- <p>Lip</p> -->
 			</div>
@@ -141,15 +145,17 @@
 						<div class="fs-image-slider">
 							<button class="fs-slider-btn fs-prev">❮</button>
 							<div class="fs-slide-track">
-								<img src="images/faci.png" alt="Salicylic Acid Cleanser">
-								<img src="images/faci.png" alt="Salicylic Acid Cleanser">
-								<img src="images/faci.png" alt="Salicylic Acid Cleanser">
+								<img src="images/f6.png" alt="Face Oil">
+								<img src="images/f6.png" alt="Face Oil">
+								<img src="images/f6.png" alt="Face Oil">
 							</div>
 							<button class="fs-slider-btn fs-next">❯</button>
 						</div>
-						<div class="fs-product-name">Salicylic Acid Cleanser</div>
-						<div class="fs-product-desc">Acne, Breakouts & Oiliness</div>
-						<div class="fs-product-price">On Sale from ₹269</div>
+						<div class="fs-product-name">Face Oil</div>
+						<div class="wsk-cp-text">
+							<span>250 ml</span>
+						</div>
+						<div class="fs-product-price">₹549</div>
 						<a class="fs-select-btn" href="faceoil.html">View Product</a>
 					</div>
 				</div>
@@ -160,15 +166,17 @@
 						<div class="fs-image-slider">
 							<button class="fs-slider-btn fs-prev">❮</button>
 							<div class="fs-slide-track">
-								<img src="images/FACPR.png" alt="SPF 50 Sunscreen">
-								<img src="images/FACPR.png" alt="SPF 50 Sunscreen">
-								<img src="images/FACPR.png" alt="SPF 50 Sunscreen">
+								<img src="images/f5.png" alt="Face Pack">
+								<img src="images/f5.png" alt="Face Pack">
+								<img src="images/f5.png" alt="Face Pack">
 							</div>
 							<button class="fs-slider-btn fs-next">❯</button>
 						</div>
-						<div class="fs-product-name">SPF 50 Sunscreen</div>
-						<div class="fs-product-desc">UV Protection</div>
-						<div class="fs-product-price">On Sale from ₹359</div>
+						<div class="fs-product-name">Face Pack</div>
+						<div class="wsk-cp-text">
+							<span> 40 g</span>
+						</div>
+						<div class="fs-product-price">₹499</div>
 						<a class="fs-select-btn" href="facepack.html">View Product</a>
 					</div>
 				</div>
@@ -179,15 +187,17 @@
 						<div class="fs-image-slider">
 							<button class="fs-slider-btn fs-prev">❮</button>
 							<div class="fs-slide-track">
-								<img src="images/LIPPR.png" alt="Vitamin C Serum">
-								<img src="images/LIPPR.png" alt="Vitamin C Serum">
-								<img src="images/LIPPR.png" alt="Vitamin C Serum">
+								<img src="images/f9.jpeg" alt="Lip Balm">
+								<img src="images/f9.jpeg" alt="Lip Balm">
+								<img src="images/f9.jpeg" alt="Lip Balm">
 							</div>
 							<button class="fs-slider-btn fs-next">❯</button>
 						</div>
-						<div class="fs-product-name">Vitamin C Serum</div>
-						<div class="fs-product-desc">Brightening & Spots</div>
-						<div class="fs-product-price">On Sale from ₹299</div>
+						<div class="fs-product-name">Lip Balm</div>
+						<div class="wsk-cp-text">
+							<span>5 g</span>
+						</div>
+						<div class="fs-product-price">₹349</div>
 						<a class="fs-select-btn" href="lipbalm.html">View Product</a>
 					</div>
 				</div>
@@ -197,22 +207,60 @@
 	</section>
 
 
-	<section class="bundle-section">
-		<div class="bundle-container">
-			<!-- Left Text -->
-			<div class="bundle-text">
-				<h1>Build Your Own Bundle!</h1>
-				<p class="subtitle">
-					Make your very own custom kit based on your skin & concern.
+	<section class="sk-bundle-section sk-animate-item" id="combo">
+		<div class="sk-bundle-container">
+
+			<!-- LEFT -->
+			<div class="sk-bundle-content">
+
+				<div class="sk-badge sk-animate-item">🔥 BEST SELLER</div>
+
+				<h1 class="sk-title sk-animate-item">✨ Complete Skincare Combo</h1>
+
+				<p class="sk-subtitle sk-animate-item">
+					Get all 3 essentials for your daily routine in one powerful bundle.
 				</p>
-				<div class="offer">Buy 3 Get <strong>10% OFF</strong></div>
-				<a href="#" class="shop-btn">Shop Now</a>
+
+				<div class="sk-products">
+
+					<div class="sk-product sk-animate-item">
+						<img src="images/f3.png" alt="Face Oil">
+						<span>Face Oil</span>
+					</div>
+
+					<div class="sk-plus">+</div>
+
+					<div class="sk-product sk-animate-item">
+						<img src="images/f1.png" alt="Face Pack">
+						<span>Face Pack</span>
+					</div>
+
+					<div class="sk-plus">+</div>
+
+					<div class="sk-product sk-animate-item">
+						<img src="images/LIPPR.png" alt="Lip Balm">
+						<span>Lip Balm</span>
+					</div>
+
+				</div>
+
+				<div class="sk-price-box sk-animate-item">
+					<span class="sk-old-price">₹ 1397</span>
+					<h2 class="sk-price">₹ 999</h2>
+					<p class="sk-save">Save ₹ 398</p>
+				</div>
+
+				<a href="#" class="sk-btn sk-animate-item">
+					Buy Combo →
+				</a>
+
 			</div>
 
-			<!-- Right Image -->
-			<div class="bundle-banner">
-				<img src="images/combo.png" alt="Skincare Products Banner">
+			<!-- RIGHT -->
+			<div class="sk-banner sk-animate-item">
+				<img src="images/f7.png" alt="">
 			</div>
+
 		</div>
 	</section>
 
@@ -229,31 +277,89 @@
 		<div class="care-grid">
 
 			<div class="care-box">
-				<i class='fa fa-check-circle'></i>
+				<div class="care-icon">
+					<i class='fa fa-check-circle'></i>
+				</div>
 				<h4>Transparency</h4>
 				<p>Full disclosure of ingredients used & their concentration</p>
 			</div>
 
 			<div class="care-box">
-				<i class='fa fa-flask'></i>
+				<div class="care-icon">
+					<i class='fa fa-flask'></i>
+				</div>
+
 				<h4>Efficacy</h4>
 				<p>Formulations developed in our in-house laboratories</p>
 			</div>
 
 			<div class="care-box">
-				<i class='fa fa-tint'></i>
+				<div class="care-icon">
+					<i class='fa fa-tint'></i>
+				</div>
+
 				<h4>Affordable</h4>
 				<p>Skincare accessible to all</p>
 			</div>
 
 			<div class="care-box">
-				<i class='fa fa-globe'></i>
+				<div class="care-icon">
+					<i class='fa fa-globe'></i>
+				</div>
+
 				<h4>Only the best</h4>
 				<p>Ingredients sourced from across the world</p>
 			</div>
 
 		</div>
 
+	</section>
+
+	<section class="usage-section">
+		<h2 class="usage-title">How to Use Our Products</h2>
+
+		<div class="usage-wrapper">
+
+			<!-- Product 1 -->
+			<div class="usage-card">
+				<div class="usage-icon">
+					<i class="fa-solid fa-bottle-droplet"></i>
+				</div>
+				<h3>Face Oil</h3>
+				<ul>
+					<li>Take 4–5 drops</li>
+					<li>Gently massage onto clean face</li>
+					<li>Use once or twice daily</li>
+				</ul>
+			</div>
+
+			<!-- Product 2 -->
+			<div class="usage-card">
+				<div class="usage-icon">
+					<i class="fa-solid fa-jar"></i>
+				</div>
+				<h3>Face Pack</h3>
+				<ul>
+					<li>Use twice a week</li>
+					<li>Mix with milk or water</li>
+					<li>Apply evenly</li>
+					<li>Leave 15–20 minutes, then wash</li>
+				</ul>
+			</div>
+
+			<!-- Product 3 -->
+			<div class="usage-card">
+				<div class="usage-icon">
+					<i class="fa-solid fa-prescription-bottle"></i>
+				</div>
+				<h3>Lip Balm</h3>
+				<ul>
+					<li>Apply 2 times daily</li>
+					<li>Use more if lips feel dry</li>
+				</ul>
+			</div>
+
+		</div>
 	</section>
 
 	<section class="customer-review-section">
@@ -264,35 +370,38 @@
 
 				<div class="review-track" id="reviewTrack">
 					<div class="review-card">
-						<div class="review-user"><b>Adila M.</b><span>12/17/25</span></div>
+						<div class="review-user"><b>Sarah</b></div>
 						<div class="review-stars">★★★★★</div>
-						<h4>Very impressive</h4>
-						<p>It helps my skin improve moisture condition. Really works well for my skin.</p>
-						<div class="review-product"><img src="images/product1.png">Squalane Face Oil</div>
+						<h4>Very nourishing</h4>
+						<p>My skin feels soft and hydrated after using the face oil daily. It absorbs quickly and gives
+							a natural glow.</p>
+						<div class="review-product"><img src="images/faci.png">Face Oil</div>
 					</div>
 
 					<div class="review-card">
-						<div class="review-user"><b>Salma S.</b><span>12/19/25</span></div>
+						<div class="review-user"><b>Nadia R.</b></div>
 						<div class="review-stars">★★★★★</div>
-						<h4>Very happy to use</h4>
-						<p>Very happy to use this cream. Keeps skin soft and glowing.</p>
-						<div class="review-product"><img src="images/product2.png">Repair Moisturizer</div>
+						<h4>Deep cleansing effect</h4>
+						<p>This face pack removes dirt and leaves my skin fresh and smooth. I use it twice a week and
+							love the results.</p>
+						<div class="review-product"><img src="images/FACPR.png">Face Pack</div>
 					</div>
 
 					<div class="review-card">
-						<div class="review-user"><b>Nupur A.</b><span>12/18/25</span></div>
+						<div class="review-user"><b>Emily A.</b></div>
 						<div class="review-stars">★★★★★</div>
-						<h4>Nice</h4>
-						<p>Very gentle and seems to work well for my skin.</p>
-						<div class="review-product"><img src="images/product3.png">Glycolic Cleanser</div>
+						<h4>Perfect for dry lips</h4>
+						<p>Keeps my lips soft all day. I apply it regularly and it works great even in dry weather.</p>
+						<div class="review-product"><img src="images/LIPPR.png">Lip Balm</div>
 					</div>
 
 					<div class="review-card">
-						<div class="review-user"><b>Nishagant S.</b><span>12/18/25</span></div>
+						<div class="review-user"><b>Aisha M.</b></div>
 						<div class="review-stars">★★★★★</div>
-						<h4>Gentle Face Wash</h4>
-						<p>It cleanses the face without stripping moisture.</p>
-						<div class="review-product"><img src="images/product4.png">Hydrating Cleanser</div>
+						<h4>Natural glow booster</h4>
+						<p>This face oil gives a beautiful glow and makes my skin look healthy and fresh. I can see
+							visible improvement in few days.</p>
+						<div class="review-product"><img src="images/faci.png">Face Oil</div>
 					</div>
 				</div>
 

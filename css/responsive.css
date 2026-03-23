@@ -80,4 +80,14 @@
     .category-card img{
         height:200px;
     }
+
+    .category-card {
+    width: 37%;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.sk-products {
+    justify-content: center;
+}
 }
