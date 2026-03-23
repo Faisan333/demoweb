@@ -1060,6 +1060,7 @@ gap:40px;
     justify-content: space-between;
     gap: 40px;
     padding: 60px 55px;
+    text-align: center;
 }
 
 /* =========================
@@ -1110,7 +1111,7 @@ gap:40px;
 .sk-products {
     display: flex;
     align-items: center;
-    /* justify-content: center; */
+    justify-content: center;
     gap: 15px;
     flex-wrap: wrap;
     margin-bottom: 25px;
