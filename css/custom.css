@@ -1230,3 +1230,12 @@ gap:40px;
         width: 100%;
     }
 }
+
+.usecare img {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #eee;
+    transition: 0.3s;
+}
