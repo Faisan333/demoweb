@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Realistic 3D Scroll Website</title>
+
+<style>
+body {
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#000;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+section {
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  text-align:center;
+}
+
+h1 { font-size:3rem; }
+p { opacity:0.7; }
+
+canvas {
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:-1;
+}
+
+.products {
+  display:flex;
+  gap:20px;
+  overflow-x:auto;
+  padding:20px;
+}
+
+.card {
+  min-width:260px;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  padding:20px;
+  border-radius:15px;
+  text-align:center;
+  transition:0.3s;
+}
+
+.card:hover {
+  transform:translateY(-10px) scale(1.05);
+}
+
+button {
+  padding:10px 20px;
+  border:none;
+  background:#ff6600;
+  color:#fff;
+  cursor:pointer;
+  border-radius:5px;
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="bg"></canvas>
+
+<section>
+  <h1>Real 3D Experience</h1>
+  <p>Scroll to control camera & object</p>
+</section>
+
+<section>
+  <div class="products">
+    <div class="card">
+      <h3>Premium Product</h3>
+      <p>Ultra realistic view</p>
+      <button>Buy Now</button>
+    </div>
+    <div class="card">
+      <h3>Smart Device</h3>
+      <p>Interactive 3D</p>
+      <button>Buy Now</button>
+    </div>
+    <div class="card">
+      <h3>New Launch</h3>
+      <p>Next gen design</p>
+      <button>Buy Now</button>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h1>Immersive Ending</h1>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.158/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<script>
+// SCENE
+const scene = new THREE.Scene();
+
+// CAMERA
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+camera.position.set(0,0,6);
+
+// RENDERER
+const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('bg'), antialias:true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(window.devicePixelRatio);
+
+// LIGHTING (REALISTIC)
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+scene.add(ambientLight);
+
+const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+directionalLight.position.set(5,5,5);
+scene.add(directionalLight);
+
+// MATERIAL (REALISTIC LOOK)
+const material = new THREE.MeshStandardMaterial({
+  color:0xff6600,
+  metalness:0.7,
+  roughness:0.2
+});
+
+// OBJECT
+const geometry = new THREE.TorusKnotGeometry(1, 0.35, 200, 32);
+const mesh = new THREE.Mesh(geometry, material);
+scene.add(mesh);
+
+// SCROLL ANIMATION
+ gsap.registerPlugin(ScrollTrigger);
+
+// ROTATION
+ gsap.to(mesh.rotation, {
+  x: Math.PI * 4,
+  y: Math.PI * 4,
+  scrollTrigger: {
+    trigger: "body",
+    start: "top top",
+    end: "bottom bottom",
+    scrub: true
+  }
+});
+
+// CAMERA MOVE (REALISTIC DEPTH)
+ gsap.to(camera.position, {
+  z: 2,
+  scrollTrigger: {
+    trigger: "body",
+    start: "top top",
+    end: "bottom bottom",
+    scrub: true
+  }
+});
+
+// PARALLAX MOUSE EFFECT
+ document.addEventListener('mousemove', (e) => {
+  const x = (e.clientX / window.innerWidth) - 0.5;
+  const y = (e.clientY / window.innerHeight) - 0.5;
+
+  gsap.to(mesh.rotation, {
+    y: mesh.rotation.y + x * 0.5,
+    x: mesh.rotation.x + y * 0.5,
+    duration:0.5
+  });
+});
+
+// ANIMATION LOOP
+function animate() {
+  requestAnimationFrame(animate);
+  renderer.render(scene, camera);
+}
+animate();
+
+// RESPONSIVE
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+</script>
+
+</body>
+</html>
