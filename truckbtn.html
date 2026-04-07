@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Real Truck UI</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: #0b0b0b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+}
+
+/* BUTTON */
+.btn {
+  position: relative;
+  width: 280px;
+  height: 70px;
+  border-radius: 40px;
+  border: none;
+  background: linear-gradient(135deg, #1f1f1f, #111);
+  color: #fff;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+/* TEXT */
+.text {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  font-size: 15px;
+}
+
+/* TRUCK */
+.truck {
+  position: absolute;
+  top: 50%;
+  left: -200px;
+  transform: translateY(-50%);
+}
+
+/* WHEELS */
+.wheel {
+  transform-origin: center;
+}
+
+/* PACKAGE */
+.package {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #eaeaea;
+  border-radius: 3px;
+  top: 18px;
+  left: 50%;
+  opacity: 0;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+/* SUCCESS */
+.success {
+  background: linear-gradient(135deg, #0f9d58, #00c853);
+}
+</style>
+</head>
+
+<body>
+
+<button class="btn" id="btn">
+  <div class="text">Place Order</div>
+
+  <!-- REALISTIC TRUCK -->
+  <svg class="truck" width="180" height="90" viewBox="0 0 300 150">
+
+    <!-- SHADOW -->
+    <ellipse cx="150" cy="120" rx="90" ry="12" fill="rgba(0,0,0,0.25)"/>
+
+    <!-- CONTAINER -->
+    <rect x="20" y="40" width="140" height="60" rx="10" fill="url(#bodyGrad)"/>
+
+    <!-- CABIN -->
+    <path d="M160 55 L220 55 L250 85 L160 85 Z" fill="url(#cabGrad)"/>
+
+    <!-- WINDOW -->
+    <rect x="175" y="60" width="30" height="18" rx="3" fill="#9fd3ff"/>
+
+    <!-- WHEELS -->
+    <circle class="wheel w1" cx="70" cy="110" r="16" fill="#111"/>
+    <circle cx="70" cy="110" r="7" fill="#777"/>
+
+    <circle class="wheel w2" cx="200" cy="110" r="16" fill="#111"/>
+    <circle cx="200" cy="110" r="7" fill="#777"/>
+
+    <!-- GRADIENTS -->
+    <defs>
+      <linearGradient id="bodyGrad" x1="0" x2="1">
+        <stop offset="0%" stop-color="#f5f5f5"/>
+        <stop offset="100%" stop-color="#dcdcdc"/>
+      </linearGradient>
+
+      <linearGradient id="cabGrad" x1="0" x2="1">
+        <stop offset="0%" stop-color="#e0e0e0"/>
+        <stop offset="100%" stop-color="#bdbdbd"/>
+      </linearGradient>
+    </defs>
+
+  </svg>
+
+  <div class="package"></div>
+
+</button>
+
+<script>
+const btn = document.getElementById("btn");
+const truck = document.querySelector(".truck");
+const text = document.querySelector(".text");
+const box = document.querySelector(".package");
+const wheels = document.querySelectorAll(".wheel");
+
+btn.addEventListener("click", () => {
+
+  const tl = gsap.timeline();
+
+  tl.to(text, {opacity: 0, duration: 0.2})
+    .to(text, {innerText: "Shipping...", opacity: 1, duration: 0.3})
+
+    // Smooth truck movement
+    .to(truck, {
+      x: 320,
+      duration: 1.3,
+      ease: "power2.inOut"
+    })
+
+    // Wheel rotation (real feel)
+    .to(wheels, {
+      rotation: 360,
+      duration: 1.3,
+      ease: "none"
+    }, "<")
+
+    // Package drop (controlled)
+    .to(box, {
+      opacity: 1,
+      y: 40,
+      duration: 0.5,
+      ease: "power2.out"
+    }, "-=0.7")
+
+    // Truck fade
+    .to(truck, {opacity: 0, duration: 0.3})
+
+    // Success
+    .to(btn, {className: "btn success", duration: 0.4})
+    .to(text, {innerText: "Order Placed", duration: 0.3});
+
+});
+</script>
+
+</body>
+</html>

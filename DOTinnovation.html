@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hover Product Dots</title>
+
+<style>
+body {
+  margin: 0;
+  background: #111;
+  font-family: Arial, sans-serif;
+}
+
+/* CONTAINER */
+.image-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+/* MAIN IMAGE */
+.image-container img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* DOT */
+.dot {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+}
+
+.dot::after {
+  content: '';
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  top: -7px;
+  left: -7px;
+  opacity: 0.6;
+}
+
+/* PRODUCT CARD */
+.product-card {
+  position: absolute;
+  width: 220px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  display: none;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  transform: translate(-50%, -120%);
+  transition: 0.3s ease;
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.product-card h4 {
+  margin: 10px 0 5px;
+  font-size: 16px;
+}
+
+.product-card p {
+  margin: 0 0 10px;
+  font-weight: bold;
+}
+
+.product-card button {
+  width: 100%;
+  padding: 8px;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.product-card button:hover {
+  background: #333;
+}
+</style>
+</head>
+
+<body>
+
+<div class="image-container">
+  
+  <!-- BACKGROUND IMAGE -->
+  <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e" alt="Gym Banner">
+
+  <!-- DOTS -->
+  <div class="dot" style="top:40%; left:20%;" data-id="1"></div>
+  <div class="dot" style="top:65%; left:55%;" data-id="2"></div>
+
+  <!-- PRODUCT CARD 1 -->
+  <div class="product-card" id="card-1">
+    <img src="https://images.unsplash.com/photo-1584865288642-42078afe6942">
+    <h4>Active Joggers</h4>
+    <p>₹1,299</p>
+    <button>Add to Bag</button>
+  </div>
+
+  <!-- PRODUCT CARD 2 -->
+  <div class="product-card" id="card-2">
+    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
+    <h4>Gym T-Shirt</h4>
+    <p>₹899</p>
+    <button>Add to Bag</button>
+  </div>
+
+</div>
+
+<script>
+const dots = document.querySelectorAll('.dot');
+
+dots.forEach(dot => {
+  const id = dot.getAttribute('data-id');
+  const card = document.getElementById('card-' + id);
+
+  dot.addEventListener('mouseenter', () => {
+    card.style.display = 'block';
+
+    const rect = dot.getBoundingClientRect();
+    const parentRect = dot.parentElement.getBoundingClientRect();
+
+    card.style.top = (rect.top - parentRect.top) + 'px';
+    card.style.left = (rect.left - parentRect.left) + 'px';
+  });
+
+  dot.addEventListener('mouseleave', () => {
+    setTimeout(() => {
+      if (!card.matches(':hover')) {
+        card.style.display = 'none';
+      }
+    }, 200);
+  });
+
+  card.addEventListener('mouseenter', () => {
+    card.style.display = 'block';
+  });
+
+  card.addEventListener('mouseleave', () => {
+    card.style.display = 'none';
+  });
+});
+</script>
+
+</body>
+</html>

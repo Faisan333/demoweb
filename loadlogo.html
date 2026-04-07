@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ultra Premium Loader</title>
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#0f0f0f; font-family:'Segoe UI'; overflow-x:hidden; }
+
+/* NAV */
+nav {
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:70px;
+  background:#111;
+  display:flex;
+  align-items:center;
+  padding:0 20px;
+  z-index:10;
+}
+
+.nav-logo {
+  width:50px;
+  height:50px;
+  opacity:0;
+  transform:scale(0.8);
+  transition: all 0.4s ease;
+}
+
+.nav-logo img {
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+/* LOADER */
+#loader {
+  position:fixed;
+  top:50%;
+  left:50%;
+  width:150px;
+  height:150px;
+  transform:translate(-50%, -50%);
+  z-index:9999;
+  filter: blur(0px);
+}
+
+#loader img {
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  border-radius:50%;
+  box-shadow:0 0 20px #0ff, 0 0 60px #f0f;
+  animation: spin 1.8s linear infinite, pulse 1.2s ease-in-out infinite;
+}
+
+/* Spin + Pulse */
+@keyframes spin {
+  0% { transform:rotate(0deg); }
+  100% { transform:rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%,100% { transform:scale(1); }
+  50% { transform:scale(1.15); }
+}
+
+.content {
+  margin-top:90px;
+  padding:20px;
+  color:#fff;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="nav-logo" id="navLogo">
+    <img src="bee1.png">
+  </div>
+</nav>
+
+<div id="loader">
+  <img src="bee1.png">
+</div>
+
+<div class="content">
+  <h1>Ultra Premium Animation</h1>
+</div>
+
+<script>
+window.addEventListener('load', () => {
+
+  const loader = document.getElementById('loader');
+  const navLogo = document.getElementById('navLogo');
+
+  const l = loader.getBoundingClientRect();
+  const n = navLogo.getBoundingClientRect();
+
+  const startX = l.left + l.width/2;
+  const startY = l.top + l.height/2;
+  const endX = n.left + n.width/2;
+  const endY = n.top + n.height/2;
+
+  // Curve control
+  const cpX = (startX + endX) / 2;
+  const cpY = startY - 120;
+
+  let start = null;
+  const duration = 1100;
+
+  function easeOutBack(t) {
+    const c1 = 1.70158;
+    const c3 = c1 + 1;
+    return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2);
+  }
+
+  function animate(ts) {
+    if (!start) start = ts;
+    let p = (ts - start) / duration;
+    if (p > 1) p = 1;
+
+    let eased = easeOutBack(p);
+
+    // Bezier curve
+    const x =
+      (1-p)*(1-p)*startX +
+      2*(1-p)*p*cpX +
+      p*p*endX;
+
+    const y =
+      (1-p)*(1-p)*startY +
+      2*(1-p)*p*cpY +
+      p*p*endY;
+
+    const scale = 1 - 0.67 * eased;
+
+    loader.style.transform =
+      `translate(${x - startX}px, ${y - startY}px) scale(${scale})`;
+
+    // Motion blur effect
+    loader.style.filter = `blur(${p * 6}px)`;
+
+    // Glow fade
+    loader.style.opacity = 1 - p;
+
+    if (p < 1) {
+      requestAnimationFrame(animate);
+    } else {
+      // Bounce settle
+      navLogo.style.opacity = 1;
+      navLogo.style.transform = "scale(1)";
+
+      loader.style.display = "none";
+    }
+  }
+
+  setTimeout(() => {
+    requestAnimationFrame(animate);
+  }, 500);
+
+});
+</script>
+
+</body>
+</html>
