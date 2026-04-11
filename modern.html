@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ultimate Premium Website</title>
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<style>
+/* --- Reset & Basic --- */
+body, html {margin:0; padding:0; font-family: 'Segoe UI', sans-serif; background:#0f0f0f; color:#fff; overflow-x:hidden;}
+.container {max-width: 1200px; margin:auto; padding: 20px; position:relative;}
+
+/* --- Navbar --- */
+.navbar {display:flex; justify-content:space-between; align-items:center; padding:15px 30px; background: rgba(0,0,0,0.85); position:sticky; top:0; z-index:1000; backdrop-filter: blur(10px);}
+.navbar-logo {font-size:28px; font-weight:bold; cursor:pointer; color:#1ed760;}
+.navbar-menu a {margin-left:20px; color:#fff; text-decoration:none; transition:0.3s;}
+.navbar-menu a:hover {color:#1ed760;}
+
+/* --- Loader --- */
+.loader {position:fixed; top:0; left:0; width:100%; height:100%; background:#0f0f0f; display:flex; justify-content:center; align-items:center; z-index:2000;}
+.loader-logo {font-size:64px; font-weight:bold; color:#1ed760; opacity:0; text-shadow: 0 0 20px #1ed760, 0 0 40px #1ed760;}
+
+/* --- Product Hotspots --- */
+.product-area {position:relative; margin:50px 0; height:400px; background: linear-gradient(to top, #111 0%, #222 100%); border-radius:15px; overflow:hidden;}
+.product-dot {position:absolute; width:20px; height:20px; background:#1ed760; border-radius:50%; cursor:pointer; box-shadow:0 0 10px #1ed760; transition: transform 0.3s;}
+.product-dot:hover {transform: scale(1.3);}
+.product-card {position:absolute; background:rgba(255,255,255,0.1); padding:15px; border-radius:15px; display:none; color:#fff; width:220px; backdrop-filter: blur(10px); box-shadow: 0 0 20px #1ed760;}
+
+/* --- Truck Button --- */
+.truck-btn {position:relative; padding:15px 30px; background: linear-gradient(145deg, #1ed760, #0fae6f); border:none; border-radius:50px; font-size:16px; cursor:pointer; overflow:hidden; display:flex; align-items:center; gap:15px; color:#000; font-weight:bold; box-shadow: 0 0 20px #1ed760; transition: all 0.3s;}
+.truck-btn:hover {box-shadow: 0 0 40px #1ed760; transform: translateY(-2px);}
+.truck-svg {width:60px; height:35px;}
+
+/* --- Parallax Background --- */
+.parallax {position:relative; width:100%; height:300px; overflow:hidden; margin-bottom:50px;}
+.parallax-layer {position:absolute; width:100%; height:100%; background-repeat:no-repeat; background-size:cover;}
+.parallax-layer.back {background-image:url('https://i.ibb.co/3fX7LJx/city-back.png'); z-index:1;}
+.parallax-layer.middle {background-image:url('https://i.ibb.co/x2gY9T2/city-middle.png'); z-index:2;}
+.parallax-layer.front {background-image:url('https://i.ibb.co/bF7sQz6/city-front.png'); z-index:3;}
+
+/* --- Footer --- */
+footer {text-align:center; padding:20px; background: rgba(0,0,0,0.85); margin-top:50px; border-top: 1px solid #1ed760;}
+footer a {color:#1ed760; text-decoration:none; margin:0 10px; transition:0.3s;}
+footer a:hover {text-decoration:underline;}
+</style>
+</head>
+<body>
+
+<!-- Loader -->
+<div class="loader">
+  <div class="loader-logo">LOGO</div>
+</div>
+
+<!-- Navbar -->
+<div class="navbar">
+  <div class="navbar-logo">LOGO</div>
+  <div class="navbar-menu">
+    <a href="#products">Products</a>
+    <a href="#order">Order</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div>
+
+<!-- Parallax City Background -->
+<div class="parallax">
+  <div class="parallax-layer back"></div>
+  <div class="parallax-layer middle"></div>
+  <div class="parallax-layer front"></div>
+</div>
+
+<!-- Main Content -->
+<div class="container">
+  <section id="products">
+    <h2>Our Products</h2>
+    <div class="product-area">
+      <!-- Example Hotspot Dots -->
+      <div class="product-dot" style="top:50px; left:80px;"></div>
+      <div class="product-dot" style="top:150px; left:300px;"></div>
+      <div class="product-card" id="card1">Product 1: Premium Item with Details</div>
+      <div class="product-card" id="card2">Product 2: High-end Item Description</div>
+    </div>
+  </section>
+
+  <section id="order" style="margin-top:50px;">
+    <h2>Place Your Order</h2>
+    <button class="truck-btn">
+      <svg class="truck-svg" viewBox="0 0 64 32">
+        <rect x="0" y="8" width="40" height="16" fill="#fff"/>
+        <rect x="40" y="12" width="20" height="12" fill="#fff"/>
+      </svg>
+      Place Order
+    </button>
+  </section>
+</div>
+
+<!-- Footer -->
+<footer id="contact">
+  <p>Contact us: <a href="mailto:email@example.com">email@example.com</a> | +971 50 123 4567</p>
+  <p>© 2026 MyG Digital Store</p>
+</footer>
+
+<script>
+// --- Loader Animation ---
+gsap.fromTo('.loader-logo', {opacity:0, y:-50}, {opacity:1, y:0, duration:1.2, ease:'bounce.out', repeat:1, yoyo:true});
+gsap.to('.loader', {opacity:0, delay:2.5, duration:1, display:'none'});
+
+// --- Parallax Animation ---
+window.addEventListener('scroll', ()=>{
+  const scrolled = window.scrollY;
+  document.querySelector('.parallax-layer.back').style.transform = `translateX(${scrolled*0.1}px)`;
+  document.querySelector('.parallax-layer.middle').style.transform = `translateX(${scrolled*0.3}px)`;
+  document.querySelector('.parallax-layer.front').style.transform = `translateX(${scrolled*0.5}px)`;
+});
+
+// --- Product Hotspot Hover ---
+const dots = document.querySelectorAll('.product-dot');
+const cards = document.querySelectorAll('.product-card');
+dots.forEach((dot, i)=>{
+  dot.addEventListener('mouseenter', ()=>{
+    cards[i].style.display='block';
+    gsap.fromTo(cards[i], {opacity:0, y:-20}, {opacity:1, y:0, duration:0.5});
+  });
+  dot.addEventListener('mouseleave', ()=>{
+    gsap.to(cards[i], {opacity:0, duration:0.3, onComplete:()=>{cards[i].style.display='none';}});
+  });
+});
+
+// --- Truck Button Animation ---
+document.querySelector('.truck-btn').addEventListener('click', ()=>{
+  gsap.to('.truck-svg', {x:400, duration:1.5, ease:'power2.inOut', repeat:0, yoyo:false});
+  alert('Order Placed!');
+});
+</script>
+
+</body>
+</html>

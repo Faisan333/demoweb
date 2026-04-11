@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D Product Showcase</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #111;
+  color: #fff;
+}
+
+/* Navbar */
+.navbar { background: #1a1a1a; }
+
+/* Hero Section */
+.hero-section {
+  height: 100vh;
+  background: url('https://images.unsplash.com/photo-1606813904520-98e4e77b3d38?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  perspective: 1500px;
+}
+.hero-section h1 {
+  font-size: 4rem;
+  text-shadow: 0 0 20px rgba(0,0,0,0.7);
+}
+.hero-section p {
+  font-size: 1.3rem;
+  max-width: 600px;
+  text-align: center;
+  text-shadow: 0 0 15px rgba(0,0,0,0.7);
+}
+.btn-hero {
+  margin-top: 20px;
+  padding: 12px 30px;
+  border-radius: 50px;
+  border: none;
+  background: linear-gradient(90deg,#ff416c,#ff4b2b);
+  color: #fff;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.btn-hero:hover { transform: scale(1.1); box-shadow: 0 10px 20px rgba(255,75,43,0.5); }
+
+/* Product Section */
+.container-3d {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.product-card {
+  display: inline-block;
+  width: 300px;
+  height: 400px;
+  background: #222;
+  border-radius: 20px;
+  overflow: hidden;
+  perspective: 1000px;
+  cursor: grab;
+  margin-bottom: 40px;
+  transition: transform 0.3s ease;
+}
+
+.product-inner {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.product-inner img {
+  width: 100%;
+  height: 60%;
+  object-fit: cover;
+  display: block;
+}
+
+.product-info {
+  padding: 20px;
+}
+
+.buy-btn {
+  background: linear-gradient(90deg,#ff416c,#ff4b2b);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  color: #fff;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.buy-btn:hover { transform: scale(1.1); box-shadow: 0 10px 20px rgba(255,75,43,0.5); }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">3D Shop</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <h1>360° Product Experience</h1>
+  <p>Drag the products to rotate them and view from all angles in a fully immersive style.</p>
+  <button class="btn-hero" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Explore Products</button>
+</section>
+
+<!-- Product Section -->
+<section class="container container-3d mt-5" id="products">
+  <div class="row justify-content-center g-4">
+    <div class="col-md-4">
+      <div class="product-card">
+        <div class="product-inner" id="product1">
+          <!-- 36 placeholder frames simulate rotation -->
+          <img src="bee1.png" alt="Product 1">
+        </div>
+        <div class="product-info">
+          <h4>Modern Watch</h4>
+          <p>$199</p>
+          <button class="buy-btn">Buy Now</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="product-card">
+        <div class="product-inner" id="product2">
+          <img src="bee3.png" alt="Product 2">
+        </div>
+        <div class="product-info">
+          <h4>Wireless Headphones</h4>
+          <p>$299</p>
+          <button class="buy-btn">Buy Now</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="product-card">
+        <div class="product-inner" id="product3">
+          <img src="bee1.png" alt="Product 3">
+        </div>
+        <div class="product-info">
+          <h4>Smart Glasses</h4>
+          <p>$399</p>
+          <button class="buy-btn">Buy Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="text-center my-5">
+  <div class="container">
+    <h2>About Our 3D Shop</h2>
+    <p>We provide fully interactive 360° product experiences without heavy libraries. Smooth, fast, and stylish.</p>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="text-center my-5">
+  <div class="container">
+    <h2>Contact Us</h2>
+    <p>Reach out for partnerships or product inquiries.</p>
+    <button class="btn-hero">Get In Touch</button>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// Smooth 3D rotation
+document.querySelectorAll('.product-card').forEach(card => {
+  const inner = card.querySelector('.product-inner');
+  let isDragging = false, startX = 0, startY = 0;
+  let rotationX = 0, rotationY = 0;
+
+  card.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    startX = e.clientX;
+    startY = e.clientY;
+    card.style.cursor = 'grabbing';
+  });
+
+  card.addEventListener('mouseup', () => isDragging = false);
+  card.addEventListener('mouseleave', () => isDragging = false);
+
+  card.addEventListener('mousemove', (e) => {
+    if(!isDragging) return;
+    const deltaX = e.clientX - startX;
+    const deltaY = e.clientY - startY;
+    startX = e.clientX;
+    startY = e.clientY;
+    rotationY += deltaX * 0.5;
+    rotationX -= deltaY * 0.5;
+    rotationX = Math.max(Math.min(rotationX, 30), -30); // limit vertical rotation
+    gsap.to(inner, {rotationY: rotationY, rotationX: rotationX, transformPerspective:800, ease:"power3.out"});
+  });
+});
+</script>
+
+</body>
+</html>
