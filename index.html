@@ -1,99 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Vanilla JS 3D Drag & Wheel Carousel</title>
+<meta charset="UTF-8">
+<title>ERP Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --primary:#0036;
+  --secondary:#FF7F50;
+  --dark:#1f2937;
+  --light:#f4f4f4;
+  --navbar:#fff;
+  --sidebar:#2c2f41;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--light);
+  color:#333;
+}
+
+/* NAVBAR */
+.navbar{
+  height:60px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 24px;
+  position:fixed;
+  width:100%;
+  top:0;
+  background: var(--navbar);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  z-index:100;
+}
+
+.nav-left{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.menu-btn{
+  font-size:24px;
+  background:none;
+  border:none;
+  cursor:pointer;
+  display:none;
+  color:#333;
+}
+
+.brand{
+  font-weight:700;
+  font-size:20px;
+  color: var(--primary);
+}
+
+.user{
+  font-size:14px;
+  color:#333;
+}
+
+/* LAYOUT */
+.layout{
+  display:flex;
+  margin-top:60px;
+  height:calc(100vh - 60px);
+}
+
+/* SIDEBAR */
+.sidebar{
+  width:220px;
+  padding:24px 12px;
+  background: var(--sidebar);
+  color:#fff;
+  transition:0.3s;
+}
+
+.sidebar a{
+  display:block;
+  padding:14px 16px;
+  color:#fff;
+  text-decoration:none;
+  border-radius:8px;
+  margin-bottom:12px;
+  font-size:15px;
+  font-weight:500;
+  transition:0.2s;
+}
+
+.sidebar a.active,
+.sidebar a:hover{
+  background: var(--primary);
+  color:#fff;
+  transform: scale(1.02);
+}
+
+/* CONTENT */
+.content{
+  flex:1;
+  background:#f9f9f9;
+  overflow:hidden;
+}
+
+iframe{
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .menu-btn{display:block;}
+  .sidebar{
+    position:fixed;
+    top:60px;
+    left:-100%;
+    height:calc(100vh - 60px);
+    z-index:1000;
+  }
+  .sidebar.open{left:0;}
+}
+</style>
 </head>
+
 <body>
 
-<div class="carousel">
-	<div class="carousel-item">
-		<div class="carousel-box">
-			<div class="title">El Nido</div>
-			<div class="num">01</div>
-			<img src="https://i.pinimg.com/736x/00/27/65/002765ee261fbc54e8d549ea4cf2cd7e.jpg" />
-		</div>
-	</div>
-
-	<div class="carousel-item">
-		<div class="carousel-box">
-			<div class="title">Warsaw</div>
-			<div class="num">02</div>
-			<img src="https://i.pinimg.com/736x/0f/8f/93/0f8f937c1ef03c0a98df7da664c8ee74.jpg" />
-		</div>
-	</div>
-
-	<div class="carousel-item">
-		<div class="carousel-box">
-			<div class="title">Madrid</div>
-			<div class="num">03</div>
-			<img
-				src="https://i.pinimg.com/736x/98/f5/87/98f587429b0d9bff61845b18de90c33d.jpg"
-			/>
-		</div>
-	</div>
-
-	<div class="carousel-item">
-		<div class="carousel-box">
-			<div class="title">Sydney</div>
-			<div class="num">04</div>
-			<img src="https://i.pinimg.com/1200x/e7/12/e7/e712e77e1bdabf0d3b9ce953f121db22.jpg" />
-		</div>
-	</div>
-
-	<div class="carousel-item">
-		<div class="carousel-box">
-			<div class="title">Tropical Canyon</div>
-			<div class="num">05</div>
-			<img src="https://i.pinimg.com/736x/ee/94/b2/ee94b291e5b9cc428c0c9993f39bb83a.jpg" />
-		</div>
-	</div>
-
-	<div class="carousel-item">
-		<div class="carousel-box">
-			<div class="title">Prague</div>
-			<div class="num">06</div>
-			<img src="https://i.pinimg.com/736x/0a/1a/6f/0a1a6ffa93f62ede1664cd99a87108cd.jpg" />
-		</div>
-	</div>
-
-	<div class="carousel-item">
-		<div class="carousel-box">
-			<div class="title">Munich</div>
-			<div class="num">07</div>
-			<img src="https://i.pinimg.com/1200x/a9/33/3d/a9333dec5207f957eefb1581d2a469ce.jpg" />
-		</div>
-	</div>
-
-	<div class="carousel-item">
-		<div class="carousel-box">
-			<div class="title">Venice</div>
-			<div class="num">08</div>
-			<img src="https://i.pinimg.com/1200x/8b/80/a2/8b80a26b0e3cabfb8b09e5b74b62de61.jpg" />
-		</div>
-	</div>
-
-	<div class="carousel-item">
-		<div class="carousel-box">
-			<div class="title">Oslo</div>
-			<div class="num">09</div>
-			<img src="https://i.pinimg.com/736x/1f/c7/29/1fc729c474331008e7cbd1d9f85b3e0a.jpg" />
-		</div>
-	</div>
-	<div class="carousel-item">
-		<div class="carousel-box">
-			<div class="title">Maldives</div>
-			<div class="num">10</div>
-			<img src="https://i.pinimg.com/736x/85/50/8a/85508a7fe438e204d3314220d6cc7f20.jpg" />
-		</div>
-	</div>
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="nav-left">
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <div class="brand">
+        DEMO ERP
+    </div>
+  </div>
+  <div class="user">Admin</div>
 </div>
-</div>
-<div class="cursor"></div>
-<div class="cursor cursor2"></div>
 
-<script src="script.js"></script>
+<!-- LAYOUT -->
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+    <a class="active">📊 Dashboard</a>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    <iframe
+      src="https://docs.google.com/spreadsheets/d/1-nnHrHZlA8lRkMB-c1NVEUOehjnbsIcZs0d3NHtAor4/edit?usp=sharing"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+</div>
+
+<script>
+function toggleMenu(){
+  document.getElementById("sidebar").classList.toggle("open");
+}
+</script>
+
 </body>
 </html>
