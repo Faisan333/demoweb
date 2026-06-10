@@ -1,172 +1,717 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>ERP Dashboard</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="Muhammed Faisan">
+	<link rel="shortcut icon" href="images/logo.png">
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+	<meta name="description" content="Ayna Amaal Herbal is a leading online platform for herbal skin care products." />
+	<meta name="keywords"
+		content="Ayna Amaalherbal,Ayna Amaal herbal,FASICS HERBAL,Ayna Amaalherbal.com,Ayna Amaalskincare,Ayna Amaalcare" />
 
-<style>
-:root{
-  --primary:#0036;
-  --secondary:#FF7F50;
-  --dark:#1f2937;
-  --light:#f4f4f4;
-  --navbar:#fff;
-  --sidebar:#2c2f41;
-}
-
-*{box-sizing:border-box;}
-
-body{
-  margin:0;
-  font-family: 'Inter', system-ui, sans-serif;
-  background: var(--light);
-  color:#333;
-}
-
-/* NAVBAR */
-.navbar{
-  height:60px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 24px;
-  position:fixed;
-  width:100%;
-  top:0;
-  background: var(--navbar);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  z-index:100;
-}
-
-.nav-left{
-  display:flex;
-  align-items:center;
-  gap:16px;
-}
-
-.menu-btn{
-  font-size:24px;
-  background:none;
-  border:none;
-  cursor:pointer;
-  display:none;
-  color:#333;
-}
-
-.brand{
-  font-weight:700;
-  font-size:20px;
-  color: var(--primary);
-}
-
-.user{
-  font-size:14px;
-  color:#333;
-}
-
-/* LAYOUT */
-.layout{
-  display:flex;
-  margin-top:60px;
-  height:calc(100vh - 60px);
-}
-
-/* SIDEBAR */
-.sidebar{
-  width:220px;
-  padding:24px 12px;
-  background: var(--sidebar);
-  color:#fff;
-  transition:0.3s;
-}
-
-.sidebar a{
-  display:block;
-  padding:14px 16px;
-  color:#fff;
-  text-decoration:none;
-  border-radius:8px;
-  margin-bottom:12px;
-  font-size:15px;
-  font-weight:500;
-  transition:0.2s;
-}
-
-.sidebar a.active,
-.sidebar a:hover{
-  background: var(--primary);
-  color:#fff;
-  transform: scale(1.02);
-}
-
-/* CONTENT */
-.content{
-  flex:1;
-  background:#f9f9f9;
-  overflow:hidden;
-}
-
-iframe{
-  width:100%;
-  height:100%;
-  border:0;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-  .menu-btn{display:block;}
-  .sidebar{
-    position:fixed;
-    top:60px;
-    left:-100%;
-    height:calc(100vh - 60px);
-    z-index:1000;
-  }
-  .sidebar.open{left:0;}
-}
-</style>
+	<!-- Bootstrap CSS -->
+	<!-- Font Awesome CDN -->
+	<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Roboto:wght@300;400;500;700&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+	<link href="css/tiny-slider.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/custom.css" rel="stylesheet">
+	<link href="css/responsive.css" rel="stylesheet">
+	<title>Ayna Amaal Whitening Cream</title>
 </head>
 
 <body>
+	<section>
+		<!-- ===== HEADER ===== -->
+		<header class="header">
 
-<!-- NAVBAR -->
-<div class="navbar">
-  <div class="nav-left">
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
-    <div class="brand">
-        DEMO ERP
+			<div class="mobile-menu d-block d-sm-none" id="menuBtn">
+				<i class="fas fa-bars"></i>
+			</div>
+
+			<div class="logo">
+				<a href="index.html"><img src="images/logo.png" alt="Logo" style="width: auto;height: 110px;"></a>
+			</div>
+
+			<div class="social-icons">
+				<a  target="_blank" href="https://www.instagram.com/suvaibathul_aslamiya_pp/"><i class="fa fa-instagram"></i></a>
+				<a  target="_blank" href="https://wa.me/971505388542"><i class="fa fa-whatsapp"></i></a>
+			</div>
+
+		</header>
+		<!-- <div class="wrappers">
+			<div class="elements"></div>
+		</div> -->
+		<!-- ===== NAVBAR ===== -->
+		<nav class="navbar" id="navbar">
+			<a href="index.html">Home</a>
+			<!-- <a href="#shop.html">Shop</a> -->
+			<!-- <a href="#bestseller">Best Sellers</a> -->
+			<!-- <a href="#combo">Combo Pack</a> -->
+			<a href="#bestseller">Products</a>
+			<!-- <a href="facepack.html">Face Pack</a>
+			<a href="lipbalm.html">Lip Balm</a> -->
+			<a href="#footer">Contact Us</a>
+		</nav>
+	</section>
+	<!-- ===== HERO ===== -->
+	<section class="main">
+
+		<div class="slides">
+
+			<div class="slide">
+    <img src="images/BAN1.png" alt="">
+    <div class="main-text">
+        <h1>Ayna Amaal</h1>
+        <h2>Whitening Cream</h2>
+        <p>Brighten and nourish your skin for a naturally radiant, even-looking complexion.</p>
+        <a href="#" class="banner-btn">Shop Now</a>
     </div>
-  </div>
-  <div class="user">Admin</div>
 </div>
 
-<!-- LAYOUT -->
-<div class="layout">
-
-  <!-- SIDEBAR -->
-  <div class="sidebar" id="sidebar">
-    <a class="active">📊 Dashboard</a>
-  </div>
-
-  <!-- CONTENT -->
-  <div class="content">
-    <iframe
-      src="https://docs.google.com/spreadsheets/d/1-nnHrHZlA8lRkMB-c1NVEUOehjnbsIcZs0d3NHtAor4/edit?usp=sharing"
-      allowfullscreen>
-    </iframe>
-  </div>
-
+<div class="slide">
+    <img src="images/BAN2.png" alt="">
+    <div class="main-text">
+        <h1>Healthy Glow</h1>
+        <h2>Skin Brightening Care</h2>
+        <p>Helps improve skin appearance while keeping it soft, smooth, and refreshed.</p>
+        <a href="#" class="banner-btn">Shop Now</a>
+    </div>
 </div>
 
-<script>
-function toggleMenu(){
-  document.getElementById("sidebar").classList.toggle("open");
-}
-</script>
+<div class="slide">
+    <img src="images/BAN3.png" alt="">
+    <div class="main-text">
+        <h1>Daily Beauty Care</h1>
+        <h2>Confidence in Every Glow</h2>
+        <p>Lightweight daily cream for brighter-looking skin and lasting hydration.</p>
+        <a href="#" class="banner-btn">Shop Now</a>
+    </div>
+</div>
+			<!-- <div class="slide">
+				<img src="images/banner 2 .jpg.jpeg" alt="">
+			</div>
+			<div class="slide">
+				<img src="images/banner 3 .jpg.jpeg" alt="">
+			</div> -->
+
+		</div>
+	</section>
+
+
+	<section class="fc-concern-section">
+
+    <div class="fc-container">
+
+        <h2 class="fc-title">Shop by Concern</h2>
+
+        <div class="swiper fcSwiper">
+
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                    <a class="fc-item">
+                        <img src="images/app/dark-spots.avif" alt="">
+                        <span>Dark Spots</span>
+                    </a>
+                </div>
+
+                <div class="swiper-slide">
+                    <a class="fc-item">
+                        <img src="images/app/pimple-marks.avif" alt="">
+                        <span>Pimple Marks</span>
+                    </a>
+                </div>
+
+                <div class="swiper-slide">
+                    <a class="fc-item">
+                        <img src="images/app/dullskin_2.avif" alt="">
+                        <span>Dull Skin</span>
+                    </a>
+                </div>
+
+                <div class="swiper-slide">
+                    <a class="fc-item">
+                        <img src="images/app/lip-pigmentation.avif" alt="">
+                        <span>Lip Pigmentation</span>
+                    </a>
+                </div>
+
+                <div class="swiper-slide">
+                    <a class="fc-item">
+                        <img src="images/app/oilyskin.avif" alt="">
+                        <span>Oily Skin</span>
+                    </a>
+                </div>
+
+                <div class="swiper-slide">
+                    <a class="fc-item">
+                        <img src="images/app/pimple-marks.avif" alt="">
+                        <span>Pimple & Acne</span>
+                    </a>
+                </div>
+
+                <div class="swiper-slide">
+                    <a class="fc-item">
+                        <img src="images/app/tan.avif" alt="">
+                        <span>Sun Tan</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="swiper-button-prev fc-prev"></div>
+            <div class="swiper-button-next fc-next"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+	<!-- <section class="category-section">
+
+		<h2 class="category-title">Shop by Category</h2>
+
+		<div class="category-container">
+
+			<div class="category-card" onclick="window.location.href='faceoil.html'">
+				<img src="images/f3.png">
+				<div class="overlay">Face Oil</div>
+				
+			</div>
+
+			<div class="category-card" onclick="window.location.href='facepack.html'">
+				<img src="images/f1.png">
+				<div class="overlay">Face Pack</div>
+				
+			</div>
+
+
+			<div class="category-card" onclick="window.location.href='lipbalm.html'">
+				<img src="images/f4.png">
+				<div class="overlay">Lip Balm</div>
+				
+			</div>
+
+		</div>
+
+	</section> -->
+
+
+	<section class="skin-section">
+
+		<!-- BACKGROUND VIDEO -->
+		<video autoplay muted loop playsinline class="skin-video">
+			<source src="images/APPLY.mp4" type="video/mp4">
+		</video>
+
+		<!-- Gradient Overlay -->
+		<div class="skin-overlay"></div>
+
+		<!-- LEFT CONTENT -->
+		<div class="skin-content">
+			<span class="skin-badge">#Ayna Amaal Acne Defense</span>
+			<h1 class="skin-title">Take Control of Your Skin</h1>
+			<p class="skin-text">
+				Fight blemishes, clear blackheads, and balance excess oil for a visibly smoother complexion.
+			</p>
+			<a class="skin-btn">Shop Now</a>
+		</div>
+
+		<!-- RIGHT COMPARE -->
+		<div class="skin-compare" id="compareBox">
+			<img src="images/clear.jpg" class="skin-after">
+			<img src="images/acne.jpg" class="skin-before" id="beforeImg">
+
+			<div class="skin-slider" id="slider">
+				<span class="skin-handle">↔</span>
+			</div>
+		</div>
+
+	</section>
+
+	<section class="fs-products-section " id="bestseller">
+		<div class="container">
+			<h2 class="fs-title">Our Best Sellers</h2>
+			<p class="fs-subtitle">Top picks loved by our community</p>
+
+			<div class="row justify-content-center g-4 fs-mobile-scroll">
+
+				<!-- PRODUCT 1 -->
+				<div class="col-lg-3 col-md-6 col-12">
+					<div class="fs-product-card" id="faceoil">
+						<div class="fs-image-slider">
+							<button class="fs-slider-btn fs-prev">❮</button>
+							<div class="fs-slide-track">
+								<img src="images/f6.png" alt="face cream">
+								<img src="images/f6.png" alt="face cream">
+								<img src="images/f6.png" alt="face cream">
+							</div>
+							<button class="fs-slider-btn fs-next">❯</button>
+						</div>
+						<div class="fs-product-name">Ayna Amaal Face Cream</div>
+						<div class="wsk-cp-text">
+							<span>25 g</span>
+						</div>
+						<div class="fs-product-price">₹599</div>
+						<div class="d-flex gap-2">
+							<a href="" class="btn-modern btn-view">👁 Quick View</a>
+							<a href="https://wa.me/+971505388542?text=I'd like to place an order for Ayna Amaal Whitening Cream." class="btn-modern btn-buy">🛒 Quick Buy</a>
+						</div>
+					</div>
+				</div>
+
+				<!-- PRODUCT 2 -->
+				<!-- <div class="col-lg-3 col-md-6 col-12">
+					<div class="fs-product-card" id="facepack">
+						<div class="fs-image-slider">
+							<button class="fs-slider-btn fs-prev">❮</button>
+							<div class="fs-slide-track">
+								<img src="images/f5.png" alt="Face Pack">
+								<img src="images/f5.png" alt="Face Pack">
+								<img src="images/f5.png" alt="Face Pack">
+							</div>
+							<button class="fs-slider-btn fs-next">❯</button>
+						</div>
+						<div class="fs-product-name">Face Pack</div>
+						<div class="wsk-cp-text">
+							<span> 40 g</span>
+						</div>
+						<div class="fs-product-price">₹499</div>
+						<div class="d-flex gap-2">
+							<a href="facepack.html" class="btn-modern btn-view">👁 Quick View</a>
+							<a href="https://wa.me/+919947202332?text=I'd like to place an order for the Face Pack." class="btn-modern btn-buy">🛒 Quick Buy</a>
+						</div>
+					</div>
+				</div> -->
+
+				<!-- PRODUCT 3 -->
+				<!-- <div class="col-lg-3 col-md-6 col-12">
+					<div class="fs-product-card" id="lipbalm">
+						<div class="fs-image-slider">
+							<button class="fs-slider-btn fs-prev">❮</button>
+							<div class="fs-slide-track">
+								<img src="images/f2.png" alt="Lip Balm">
+								<img src="images/f2.png" alt="Lip Balm">
+								<img src="images/f2.png" alt="Lip Balm">
+							</div>
+							<button class="fs-slider-btn fs-next">❯</button>
+						</div>
+						<div class="fs-product-name">Lip Balm</div>
+						<div class="wsk-cp-text">
+							<span>5 g</span>
+						</div>
+						<div class="fs-product-price">₹349</div>
+						<div class="d-flex gap-2">
+							<a href="lipbalm.html" class="btn-modern btn-view">👁 Quick View</a>
+							<a href="https://wa.me/+919947202332?text=I'd like to place an order for the Lip Balm." class="btn-modern btn-buy">🛒 Quick Buy</a>
+						</div>
+					</div>
+				</div> -->
+
+			</div>
+		</div>
+	</section>
+
+
+	<!-- <section class="sk-bundle-section sk-animate-item">
+		<div class="sk-bundle-container" id="combo">
+
+	
+			<div class="sk-bundle-content">
+
+				<div class="sk-badge sk-animate-item">🔥 BEST SELLER</div>
+
+				<h1 class="sk-title sk-animate-item">✨ Complete Skincare Combo</h1>
+
+				<p class="sk-subtitle sk-animate-item">
+					Get all 3 essentials for your daily routine in one powerful bundle.
+				</p>
+
+				<div class="sk-products">
+
+					<div class="sk-product sk-animate-item">
+						<img src="images/f3.png" alt="face cream">
+						<span>Face Oil</span>
+					</div>
+
+					<div class="sk-plus">+</div>
+
+					<div class="sk-product sk-animate-item">
+						<img src="images/f1.png" alt="Face Pack">
+						<span>Face Pack</span>
+					</div>
+
+					<div class="sk-plus">+</div>
+
+					<div class="sk-product sk-animate-item">
+						<img src="images/f4.png" alt="Lip Balm">
+						<span>Lip Balm</span>
+					</div>
+
+					<div class="sk-plus">=</div>
+					<div class="sk-product sk-animate-item">
+						<img src="images/comboimg.png" alt="Lip Balm">
+						<span>Combo Pack</span>
+					</div>
+
+
+				</div>
+
+				<div class="sk-price-box sk-animate-item">
+					<span class="sk-old-price">₹ 1397</span>
+					<h2 class="sk-price">₹ 1099</h2>
+					<p class="sk-save">Save ₹ 298</p>
+				</div>
+
+				<a href="https://wa.me/+919947202332?text=I'd like to place an order for Combo Pack." target="_blank"
+					class="sk-btn sk-animate-item">
+					Buy Combo →
+				</a>
+
+			</div>
+
+			<div class="sk-banner sk-animate-item">
+				<img src="images/f7.png" alt="">
+			</div>
+
+		</div>
+	</section> -->
+
+	<section class="product-banner">
+		<div class="banner-container">
+			<img src="images/f7.png" alt="">
+		</div>
+	</section>
+
+
+	<section class="care-section">
+
+    <h2 class="care-title">Reveal Your Natural Glow</h2>
+
+    <p class="care-subtitle">
+        Discover Ayna Amaal Whitening Cream, carefully crafted to help brighten, nourish, and protect your skin for a healthy, radiant appearance.
+    </p>
+
+    <div class="care-grid">
+
+        <div class="care-box">
+            <div class="care-icon">
+                <i class='fa fa-leaf'></i>
+            </div>
+            <h4>Natural Care</h4>
+            <p>Enriched with carefully selected skin-friendly ingredients.</p>
+        </div>
+
+        <div class="care-box">
+            <div class="care-icon">
+                <i class='fa fa-sun-o'></i>
+            </div>
+            <h4>Brightening</h4>
+            <p>Helps improve skin radiance and promotes an even-looking tone.</p>
+        </div>
+
+        <div class="care-box">
+            <div class="care-icon">
+                <i class='fa fa-tint'></i>
+            </div>
+            <h4>Hydration</h4>
+            <p>Keeps skin soft, smooth, and moisturized throughout the day.</p>
+        </div>
+
+        <div class="care-box">
+            <div class="care-icon">
+                <i class='fa fa-heart'></i>
+            </div>
+            <h4>Daily Use</h4>
+            <p>Lightweight formula suitable for your everyday skincare routine.</p>
+        </div>
+
+    </div>
+
+</section>
+
+	<!-- <section class="product-banner">
+		<div class="banner-container">
+			<img src="images/DIREC.jpeg" alt="Herbal Face Products">
+		</div>
+	</section> -->
+
+	<!-- <section class="usage-section">
+		<h2 class="usage-title">How to Use Our Products</h2>
+
+		<div class="usage-wrapper">
+
+			
+			<div class="usage-card">
+				<div class="usecare">
+					<img src="images/f3.png" alt="Face Oil">
+				</div>
+				<h3>Face Oil</h3>
+				<ul>
+					<li>Take 4–5 drops</li>
+					<li>Gently massage onto clean face</li>
+					<li>Use once or twice daily</li>
+					<li>Apply evenly, leave for 20 minutes, then wash off</li>
+				</ul>
+			</div>
+
+			
+			<div class="usage-card">
+				<div class="usecare">
+					<img src="images/f1.png" alt="Face Pack">
+				</div>
+				<h3>Face Pack</h3>
+				<ul>
+					<li>Use twice a week</li>
+					<li>Mix required quantity with milk or water</li>
+					<li>Apply evenly</li>
+					<li>Apply evenly, leave for 15–20 minutes, then wash off</li>
+				</ul>
+			</div>
+
+			
+			<div class="usage-card">
+				<div class="usecare">
+					<img src="images/f4.png" alt="Lip Balm">
+				</div>
+				<h3>Lip Balm</h3>
+				<ul>
+					<li>Apply 2 times daily</li>
+					<li>Can be used more often if lips feel dry</li>
+					<li>Cure for Lip Pigmentation due to smoking</li>
+				</ul>
+			</div>
+
+		</div>
+	</section> -->
+
+	<section class="delivery-modern">
+		<div class="delivery-content">
+
+			<div class="delivery-icon">
+				<i class="fa-solid fa-earth-americas"></i>
+			</div>
+
+			<h2>Worldwide Delivery Available</h2>
+
+			<p>
+				We ship our products safely and quickly across the globe 🌍
+				Fast processing • Secure packaging • Trusted delivery partners
+			</p>
+
+			<div class="delivery-tags">
+				<span><i class="fa-solid fa-truck-fast"></i> Fast Shipping</span>
+				<span><i class="fa-solid fa-shield"></i> Secure Packing</span>
+				<span><i class="fa-solid fa-location-dot"></i> 100+ Countries</span>
+			</div>
+
+		</div>
+	</section>
+
+	<section class="customer-review-section">
+    <div class="review-container">
+        <h2 class="review-heading">What Our Customers Say</h2>
+        <div class="review-slider">
+            <button class="review-arrow review-left" onclick="prevReview()">❮</button>
+
+            <div class="review-track" id="reviewTrack">
+
+                <div class="review-card">
+                    <div class="review-user"><b>Sarah K.</b></div>
+                    <div class="review-stars">★★★★★</div>
+                    <h4>Brighter Looking Skin</h4>
+                    <p>I love how smooth and radiant my skin looks after using Ayna Amaal Whitening Cream daily.</p>
+                    <div class="review-product"><img src="images/f6.png">Whitening Cream</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-user"><b>Nadia R.</b></div>
+                    <div class="review-stars">★★★★★</div>
+                    <h4>Light & Comfortable</h4>
+                    <p>The cream feels lightweight, absorbs quickly, and keeps my skin moisturized all day.</p>
+                    <div class="review-product"><img src="images/f6.png">Whitening Cream</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-user"><b>Emily A.</b></div>
+                    <div class="review-stars">★★★★★</div>
+                    <h4>Daily Favorite</h4>
+                    <p>I've added it to my daily skincare routine. My skin feels softer and looks more refreshed.</p>
+                    <div class="review-product"><img src="images/f6.png">Whitening Cream</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-user"><b>Aisha M.</b></div>
+                    <div class="review-stars">★★★★★</div>
+                    <h4>Healthy Glow</h4>
+                    <p>This cream helps my skin look brighter and healthier while keeping it smooth and hydrated.</p>
+                    <div class="review-product"><img src="images/f6.png">Whitening Cream</div>
+                </div>
+
+            </div>
+
+            <button class="review-arrow review-right" onclick="nextReview()">❯</button>
+        </div>
+    </div>
+</section>
+
+
+	<!--==========================
+    Footer
+  ============================-->
+	<footer id="footer">
+		<div class="footer-top">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-lg-3 col-md-6 footer-info">
+						<a href="index.html"><img src="images/logo.png" alt="" title=""
+								style="height:180px;width: auto;" /></a>
+						<!-- <p class="pt-2">With experience in garment trading for more than a decade, Ayna Amaal Garments are
+							comfortable
+							clothing that becomes your second skin.</p> -->
+					</div>
+
+					<div class="col-lg-3 col-md-6 footer-links">
+						<h4>Useful Links</h4>
+						<ul>
+							<li><i class="bi bi-chevron-right"></i> <a href="index.html">Home</a></li>
+							<!-- <li><i class="bi bi-chevron-right"></i> <a href="#about">About us</a></li>
+							<li><i class="bi bi-chevron-right"></i> <a href="shop.html">Products</a></li> -->
+							<!-- <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li> -->
+							<!-- <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li> -->
+						</ul>
+					</div>
+
+					<div class="col-lg-3 col-md-6 footer-contact ">
+						<h4>Contact Us</h4>
+						<p><img src="images/app/address.webp" alt=""
+								style="height: 18px;width: auto; padding-right: 5px;" />
+							 Dubai, United Arab Emirates
+							<br>
+							<strong><img src="images/app/call.webp" alt=""
+									style="height: 18px;width: auto; padding-right: 5px;" /></strong>+971 50 538 8542<br>
+							<strong><img src="images/app/email.webp" alt=""
+									style="height: 18px;width: auto; padding-right: 5px;" /></strong>AynaAmaalherbal.com<br>
+						</p>
+
+						<div class="social-links">
+							<!-- <a class="twitter"><i class="f fa-twitter"></i></a> -->
+							<a class="facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+							<a href="https://www.instagram.com/suvaibathul_aslamiya_pp/" class="instagram" target="_blank"><i
+									class="fa fa-instagram"></i></a>
+							<!-- <a href="" class="instagram"><i class="bi bi-instagram"></i></a> -->
+							<a class="linkedin" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+									height="16" fill="currentColor" class="bi bi-tiktok" viewBox="0 0 16 16">
+									<path
+										d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z" />
+								</svg></a>
+						</div>
+
+					</div>
+
+					<div class="col-lg-3 col-md-6 footer-links">
+						<h4>Location</h4>
+						<iframe
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d462560.68854141486!2d54.89714856363715!3d25.07627893387918!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43496ad9c645%3A0xbde66e5084295162!2sDubai!5e0!3m2!1sen!2sae!4v1773920412917!5m2!1sen!2sae"
+							style="border:0; width: 100%; height: 200px;border-radius: 30px" allowfullscreen=""
+							loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="copyright">
+				&copy; Copyright <strong>Ayna Amaal</strong>. All Rights Reserved
+			</div>
+			<div class="credits" style="color: white;">
+				Developed by <a class="instagram" href="https://vuextech.com/" target="_blank">
+					<!-- <i class="bi bi-instagram" style="width:16px;height:16px;color:#C13584;"></i> -->
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#D4AF37"
+						class="bi bi-code-square" viewBox="0 0 16 16">
+						<path
+							d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
+						<path
+							d="M6.854 4.646a.5.5 0 0 1 0 .708L4.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0m2.292 0a.5.5 0 0 0 0 .708L11.793 8l-2.647 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708 0" />
+					</svg>
+				</a>
+			</div>
+		</div>
+	</footer>
+	<!-- #footer -->
+
+	<!-- WhatsApp Button -->
+	<!-- <div class="wa__btn_popup" id="wa_button">
+
+		<div class="wa__btn_popup_txt">
+			Need help? <strong>Contact us</strong>
+		</div>
+
+		<div class="wa__btn_popup_icon">
+			<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+		</div>
+
+	</div> -->
+
+	<!-- WhatsApp Popup -->
+	<!-- <div class="wa__popup_chat_box" id="wa_popup">
+
+		<div class="wa__popup_heading">
+			<div class="wa__popup_title">Questions? Doubts?</div>
+			<div class="wa__popup_intro">Chat with us on <strong>WhatsApp</strong></div>
+		</div>
+
+		<div class="wa__popup_content">
+
+			<div class="wa__popup_notice">
+				We usually reply within minutes.
+			</div>
+
+			<div class="wa__popup_content_list">
+
+				<div class="wa__popup_content_item">
+
+					<a target="_blank" href="https://wa.me/971500000000?text=Hello%20I%20need%20help">
+
+						<div class="wa__popup_avatar">
+							<img src="images/logo.png" alt="Avatar">
+						</div>
+
+						<div>
+							<div class="wa__member_name">Ayna Amaal</div>
+							<div class="wa__member_duty">Support Team</div>
+						</div>
+
+					</a>
+
+				</div>
+
+			</div>
+
+		</div>
+	</div> -->
+
+
+
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="js/tiny-slider.js"></script>
+	<script src="js/custom.js"></script>
+	<script src="js/style.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 </body>
+
 </html>
